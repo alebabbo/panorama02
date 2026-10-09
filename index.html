@@ -25,7 +25,7 @@ pannellum.viewer('panorama', {
     },
 
     "scenes": {
-        // --- PRIMA STANZA ---
+        // --- PRIMA: A ---
         "A": {
             "title": "A",
             "panorama": "A.jpg", 
@@ -33,7 +33,7 @@ pannellum.viewer('panorama', {
             "hotSpots": [
                 {
                     "pitch": -5,    // Posizione Verticale (Su/Giù)
-                    "yaw": -100,     // Posizione Orizzontale (Rotazione)
+                    "yaw": -0,     // Posizione Orizzontale (Rotazione)
                     "type": "scene",
                     "text": "B",
                     "sceneId": "B" // ID della scena di destinazione
@@ -41,7 +41,7 @@ pannellum.viewer('panorama', {
             ]
         },
 
-        // --- SECONDA STANZA: CUCINA ---
+        // --- SECONDA: B ---
         "B": {
             "title": "B",
             "panorama": "B.jpg",
@@ -53,6 +53,29 @@ pannellum.viewer('panorama', {
                     "type": "scene",
                     "text": "A",
                     "sceneId": "A"
+                }
+                {
+                    "pitch": 0,
+                    "yaw": 0,
+                    "type": "scene",
+                    "text": "C",
+                    "sceneId": "C"
+                }
+            ]
+        }
+            
+        // --- TERZA: C ---
+        "B": {
+            "title": "C",
+            "panorama": "C.jpg",
+            "autoRotate": -2,
+            "hotSpots": [
+                {
+                    "pitch": 0,
+                    "yaw": 115,
+                    "type": "scene",
+                    "text": "B",
+                    "sceneId": "B"
                 }
             ]
         }
