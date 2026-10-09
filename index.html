@@ -3,23 +3,12 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    
-    <title>Panorama 360</title>
-    
+    <title>Panorama-test</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.css"/>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"></script>
-    
     <style>
-        #panorama {
-            width: 100%;
-            height: 100vh;
-        }
-        body {
-            margin: 0;
-            padding: 0;
-            overflow: hidden; /* Blocca le barre di scorrimento */
-            background-color: #000; /* Sfondo nero per estetica */
-        }
+        #panorama { width: 100%; height: 100vh; }
+        body { margin: 0; padding: 0; overflow: hidden; background-color: #000; }
     </style>
 </head>
 <body>
@@ -27,21 +16,47 @@
 <div id="panorama"></div>
 
 <script>
-pannellum.viewer('panorama', {
-    "type": "equirectangular",
-    "panorama": "render.jpg", 
-    "autoLoad": true,
-    "autoRotate": -2,
-    
-    /* ABILITIAMO I CONTROLLI */
-    "showZoomCtrl": false,  /* Nasconde i tasti +/- (più pulito su mobile, tanto usano le dita) */
-    "showFullscreenCtrl": true, 
-    
-    /* SENSIBILITÀ SU MOBILE */
-    "mouseZoom": true,      /* Abilita zoom rotella/dita */
-    "hfov": 100,            /* Campo visivo iniziale (zoom level) */
-    "minHfov": 50,          /* Zoom massimo (quanto vicino puoi andare) */
-    "maxHfov": 120          /* Zoom minimo (grandangolo) */
+pannellum.viewer('panorama', {   
+    "default": {
+        "firstScene": "A", // Da quale stanza si inizia?
+        "author": "Il Tuo Nome",
+        "sceneFadeDuration": 1000, // Effetto dissolvenza tra le stanze (in millisecondi)
+        "autoLoad": true
+    },
+
+    "scenes": {
+        // --- PRIMA STANZA ---
+        "A": {
+            "title": "A",
+            "panorama": "A.jpg", 
+            "autoRotate": -2,
+            "hotSpots": [
+                {
+                    "pitch": -5,    // Posizione Verticale (Su/Giù)
+                    "yaw": -100,     // Posizione Orizzontale (Rotazione)
+                    "type": "scene",
+                    "text": "B",
+                    "sceneId": "B" // ID della scena di destinazione
+                }
+            ]
+        },
+
+        // --- SECONDA STANZA: CUCINA ---
+        "B": {
+            "title": "B",
+            "panorama": "B.jpg",
+            "autoRotate": -2,
+            "hotSpots": [
+                {
+                    "pitch": 0,
+                    "yaw": 115,
+                    "type": "scene",
+                    "text": "A",
+                    "sceneId": "A"
+                }
+            ]
+        }
+    }
 });
 </script>
 
