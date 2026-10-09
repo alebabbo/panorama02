@@ -18,9 +18,9 @@
 <script>
 pannellum.viewer('panorama', {   
     "default": {
-        "firstScene": "A", // Da quale stanza si inizia?
+        "firstScene": "A", 
         "author": "Il Tuo Nome",
-        "sceneFadeDuration": 1000, // Effetto dissolvenza tra le stanze (in millisecondi)
+        "sceneFadeDuration": 1000, 
         "autoLoad": true
     },
 
@@ -28,15 +28,16 @@ pannellum.viewer('panorama', {
         // --- PRIMA: A ---
         "A": {
             "title": "A",
+            "type": "equirectangular", // Aggiunto per sicurezza (è buona prassi specificarlo)
             "panorama": "A.jpg", 
             "autoRotate": -2,
             "hotSpots": [
                 {
-                    "pitch": -5,    // Posizione Verticale (Su/Giù)
-                    "yaw": -0,     // Posizione Orizzontale (Rotazione)
+                    "pitch": -5,    
+                    "yaw": -0,      
                     "type": "scene",
                     "text": "B",
-                    "sceneId": "B" // ID della scena di destinazione
+                    "sceneId": "B" 
                 }
             ]
         },
@@ -44,6 +45,7 @@ pannellum.viewer('panorama', {
         // --- SECONDA: B ---
         "B": {
             "title": "B",
+            "type": "equirectangular",
             "panorama": "B.jpg",
             "autoRotate": -2,
             "hotSpots": [
@@ -53,7 +55,7 @@ pannellum.viewer('panorama', {
                     "type": "scene",
                     "text": "A",
                     "sceneId": "A"
-                }
+                }, // <--- VIRGOLA MANCANTE AGGIUNTA QUI
                 {
                     "pitch": 0,
                     "yaw": 0,
@@ -62,11 +64,12 @@ pannellum.viewer('panorama', {
                     "sceneId": "C"
                 }
             ]
-        }
+        }, // <--- VIRGOLA MANCANTE AGGIUNTA QUI
             
         // --- TERZA: C ---
         "C": {
             "title": "C",
+            "type": "equirectangular",
             "panorama": "C.jpg",
             "autoRotate": -2,
             "hotSpots": [
